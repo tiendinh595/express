@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+ <html class="no-js">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><%= title %></title>
+  	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  	<link rel="shortcut icon" href="favicon.ico">
+
+  	<!-- Google Webfont -->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'> -->
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/themify-icons.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/bootstrap.min.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/magnific-popup.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/superfish.css">
+	<!-- Easy Responsive Tabs -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/easy-responsive-tabs.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/animate.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="http://127.0.0.1:3000/publics/css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="/publics/js/modernizr-2.6.2.min.js"></script>
+
+	</head>
+	<body>
+
+		<!-- START #fh5co-header -->
+		<% include ../includes/header %>
+		<% include ../includes/top %>
+
+		<div id="fh5co-main">
+
+			<div class="fh5co-cards">
+                <%- include('../'+template)  %>
+			</div>
+
+
+		</div>
+		<!-- END fhtco-main -->
+
+
+		<% include ../includes/footer %>
+
+
+		<!-- jQuery -->
+		<script src="http://127.0.0.1:3000/publics/js/jquery-1.10.2.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="http://127.0.0.1:3000/publics/js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="http://127.0.0.1:3000/publics/js/bootstrap.min.js"></script>
+		<!-- Owl carousel -->
+		<script src="http://127.0.0.1:3000/publics/js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="http://127.0.0.1:3000/publics/js/jquery.magnific-popup.min.js"></script>
+		<!-- Superfish -->
+		<script src="http://127.0.0.1:3000/publics/js/hoverIntent.js"></script>
+		<script src="http://127.0.0.1:3000/publics/js/superfish.js"></script>
+		<!-- Easy Responsive Tabs -->
+		<script src="http://127.0.0.1:3000/publics/js/easyResponsiveTabs.js"></script>
+		<!-- FastClick for Mobile/Tablets -->
+		<script src="http://127.0.0.1:3000/publics/js/fastclick.js"></script>
+		<!-- Parallax -->
+		<script src="http://127.0.0.1:3000/publics/js/jquery.parallax-scroll.min.js"></script>
+		<!-- Waypoints -->
+		<script src="http://127.0.0.1:3000/publics/js/jquery.waypoints.min.js"></script>
+		<!-- Main JS -->
+		<script src="http://127.0.0.1:3000/publics/js/main.js"></script>
+
+	</body>
+</html>
