@@ -6,6 +6,7 @@ var Promise = require('promise')
 
 module.exports = {
     login : function(username, password) {
+        console.log('select * from users where username="'+username+'" and password = "'+password+'"');
         return new Promise(function(resolve, reject) {
             db.query('select * from users where username="'+username+'" and password = "'+password+'"', function (err, rows, feilds) {
                 if(err || rows.length==0)

@@ -13,9 +13,9 @@ router.get('/login', function (req, res, next) {
 router.post('/login', function(req, res, next) {
     controller.login(req.body.username, req.body.password).then(function (rows) {
         console.log("success:", rows)
-        res.send("login success")
+        //res.send("login success")
     }).catch(function(e) {
-        cốnl
+        console.log('errrrrr', e)
         res.redirect('/user/login')
     })
 })
