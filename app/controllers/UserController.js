@@ -7,6 +7,6 @@ var crypto = require('crypto-js');
 module.exports = {
     login: function (username, password) {
         password = crypto.AES.encrypt(password, 'tiendinh').toString();
-        return model.login(username, password);
+        return model.login(username, crypto.AES.encrypt(password, 'tiendinh').toString());
     }
 }

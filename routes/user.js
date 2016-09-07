@@ -15,6 +15,7 @@ router.post('/login', function(req, res, next) {
         console.log("success:", rows)
         res.send("login success")
     }).catch(function(e) {
+        cốnl
         res.redirect('/user/login')
     })
 })
