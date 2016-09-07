@@ -5,11 +5,10 @@ var fs = require("fs");
 var path = require('path')
 var engine = require('ejs-locals')
 
-var routes = require('./routes/index')
-var blog = require('./routes/blog')
-
 var app = express();
 var urlEncodedParser = bodyParser.urlencoded({extended: false})
+
+app.locals.base_url = "http://127.0.0.1:1000"
 
 //setting
 app.set('views', path.join(__dirname, 'app/views'));
@@ -24,13 +23,14 @@ app.use(multer({
 }).any());
 
 //routes
-app.use('/', routes)
-app.use('/blog', blog)
+app.use('/', require('./routes/index'))
+app.use('/blog', require('./routes/blog'))
+app.use('/user', require('./routes/user'))
 
-var server = app.listen(3000, function () {
+var server = app.listen(1000, function () {
   var host = server.address().address
   var port = server.address().port
     host = '127.0.0.1'
-    port = 3000
+    port = 1000
   console.log("Ung dung Node.js dang lang nghe tai dia chi: http://%s:%s", host, port)
 })
