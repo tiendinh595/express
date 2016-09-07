@@ -4,6 +4,7 @@ var multer  = require('multer');
 var fs = require("fs");
 var path = require('path')
 var engine = require('ejs-locals')
+var cookieSession = require('cookie-session')
 
 var app = express();
 var urlEncodedParser = bodyParser.urlencoded({extended: false})
@@ -11,9 +12,15 @@ var urlEncodedParser = bodyParser.urlencoded({extended: false})
 app.locals.base_url = "http://127.0.0.1:1000"
 
 //setting
+app.set('trust proxy', 1)
 app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'ejs');
 //app.engine('ejs', engine);
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
 app.use('/publics/', express.static(__dirname + '/publics/'));
 
