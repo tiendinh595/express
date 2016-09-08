@@ -1,20 +1,24 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer  = require('multer');
-var fs = require("fs");
 var path = require('path')
-var engine = require('ejs-locals')
-
-var routes = require('./routes/index')
-var blog = require('./routes/blog')
+var cookieSession = require('cookie-session')
 
 var app = express();
+
+require('./app/config/app')(app)
+
 var urlEncodedParser = bodyParser.urlencoded({extended: false})
 
 //setting
+app.set('trust proxy', 1)
 app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'ejs');
-//app.engine('ejs', engine);
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
 app.use('/publics/', express.static(__dirname + '/publics/'));
 
@@ -24,13 +28,15 @@ app.use(multer({
 }).any());
 
 //routes
-app.use('/', routes)
-app.use('/blog', blog)
+app.use('/', require('./routes/index'))
+app.use('/blog', require('./routes/blog'))
+app.use('/user', require('./routes/user'))
 
-var server = app.listen(3000, function () {
+
+var server = app.listen(app.locals.port, function () {
   var host = server.address().address
   var port = server.address().port
     host = '127.0.0.1'
-    port = 3000
+    port = app.locals.port
   console.log("Ung dung Node.js dang lang nghe tai dia chi: http://%s:%s", host, port)
 })
